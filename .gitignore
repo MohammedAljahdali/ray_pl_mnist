@@ -1,0 +1,5 @@
+env
+lightning_logs
+MNIST
+__pycache__
+.idea
