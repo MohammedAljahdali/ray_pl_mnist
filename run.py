@@ -35,7 +35,7 @@ def cli_main():
     # training
     # ------------
     # ray.init()
-    plugin = RayPlugin(num_workers=args.num_workers, cpus_per_worker=args.cpus_per_worker,
+    plugin = RayPlugin(num_workers=args.ray_accelerator_num_workers, cpus_per_worker=args.ray_accelerator_cpus_per_worker,
                        use_gpu=True if args.gpus >= 1 else False)
     trainer = pl.Trainer(
         gpus=args.gpus, precision=args.precision, plugins=[plugin],
