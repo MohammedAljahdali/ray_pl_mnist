@@ -16,7 +16,7 @@ def cli_main():
     parser = ArgumentParser()
     parser = pl.Trainer.add_argparse_args(parser)
     parser.add_argument("--ray_accelerator_num_workers", type=int, default=4)
-    parser.add_argument("--ray_accelerator_cpus_per_worker", type=int, default=4)
+    parser.add_argument("--ray_accelerator_cpus_per_worker", type=int, default=1)
     parser.add_argument("--use_gpu", type=bool, default=False)
     parser = LitMNIST.add_model_specific_args(parser)
     parser = MNISTDataModule.add_argparse_args(parser)
@@ -25,7 +25,10 @@ def cli_main():
     # ------------
     # data
     # ------------
-    dm = MNISTDataModule.from_argparse_args(args)
+    dm = MNISTDataModule(
+        data_dir='', val_split=5000, num_workers=16,
+        normalize=False, seed=42, batch_size=32
+    )
 
     # ------------
     # model
