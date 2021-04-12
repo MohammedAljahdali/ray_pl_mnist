@@ -26,7 +26,7 @@ def cli_main():
     # data
     # ------------
     dm = MNISTDataModule(
-        data_dir='', val_split=5000, num_workers=16,
+        data_dir='', val_split=5000, num_workers=1,
         normalize=False, seed=42, batch_size=32
     )
 

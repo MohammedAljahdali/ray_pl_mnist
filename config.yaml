@@ -155,7 +155,6 @@ head_setup_commands:
 worker_setup_commands:
     - pip install google-api-python-client==1.7.8
     - git clone https://github.com/MohammedAljahdali/ray_pl_mnist.git
-    - git clone https://github.com/MohammedAljahdali/ray_pl_mnist.git
     - pip install -r ray_pl_mnist/requirements.txt
 
 # Command to start ray on the head node. You don't need to change this.
