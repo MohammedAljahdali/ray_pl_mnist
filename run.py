@@ -22,6 +22,13 @@ def cli_main():
     parser = MNISTDataModule.add_argparse_args(parser)
     args = parser.parse_args()
 
+    ray.init(address='auto')
+
+    print('''This cluster consists of
+        {} nodes in total
+        {} CPU resources in total
+    '''.format(len(ray.nodes()), ray.cluster_resources()['CPU']))
+
     # ------------
     # data
     # ------------
